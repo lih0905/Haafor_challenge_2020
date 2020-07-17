@@ -1,6 +1,8 @@
 # load modules
 import time 
+import random
 
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -23,7 +25,7 @@ torch.backends.cudnn.deterministic = True
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # hyperparameters
-BATCH_SIZE = 32
+BATCH_SIZE = 4 
 MAX_LENGTH = 512
 N_EPOCHS = 5
 
