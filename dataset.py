@@ -21,8 +21,8 @@ class NSP_Dataset(Dataset):
 
     def __getitem__(self, index):
         #Select the sentence and label at the specified index in the data frame
-        X = self.df.loc[index,'X']
-        Y = self.df.loc[index,'Y']
+        X = self.df.loc[index,'X_BODY']
+        Y = self.df.loc[index,'Y_BODY']
         label = self.df.loc[index,'Label']
         #Preprocess the text to be suitable for the transformer
         res = self.tokenizer.encode_plus(X,Y, return_token_type_ids=True, return_attention_mask=True, truncation=True,

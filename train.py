@@ -1,6 +1,6 @@
 # load modules
 import time 
-import random
+import random 
 
 import numpy as np
 import torch
@@ -10,7 +10,7 @@ from torch.utils.data import DataLoader
 from transformers import AlbertModel
 
 from dataset import NSP_Dataset
-from model import NSP
+from model import NSP, NSP_pool, NSP_lin
 from utils import epoch_time, binary_accuracy, train, evaluate
 
 # fix random seed
@@ -25,21 +25,26 @@ torch.backends.cudnn.deterministic = True
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # hyperparameters
-BATCH_SIZE = 4 
+BATCH_SIZE = 128
 MAX_LENGTH = 512
 N_EPOCHS = 5
+model_name='albert-large-v1'
 
 # load the dataset
-train_dataset = NSP_Dataset('Data/train.csv', max_length=MAX_LENGTH)
-dev_dataset = NSP_Dataset('Data/dev.csv', max_length=MAX_LENGTH)
+train_dataset = NSP_Dataset('Data/train.csv', model_name=model_name, max_length=MAX_LENGTH)
+dev_dataset = NSP_Dataset('Data/dev.csv', model_name=model_name, max_length=MAX_LENGTH)
 train_dataloader = DataLoader(train_dataset, batch_size=BATCH_SIZE)
 dev_dataloader = DataLoader(dev_dataset, batch_size=BATCH_SIZE)
 
 # load the NSP model
-model_name='albert-base-v1'
 albert = AlbertModel.from_pretrained(model_name)
-model = NSP(albert)
+model = NSP_lin(albert)
 model.to(device)
+
+# freeze the parameters of albert
+for name, param in model.named_parameters():
+    if name.startswith('albert'):
+        param.requires_grad = False
 
 # load the optimizer and loss function
 optimizer = optim.Adam(model.parameters())
@@ -53,7 +58,7 @@ for epoch in range(N_EPOCHS):
     start_time = time.time()
     
     train_loss, train_acc = train(model, train_dataloader, optimizer, criterion, device)
-    valid_loss, valid_acc = evaluate(model, valid_dataloader, criterion, device)
+    valid_loss, valid_acc = evaluate(model, dev_dataloader, criterion, device)
     
     end_time = time.time()
 
@@ -61,7 +66,7 @@ for epoch in range(N_EPOCHS):
     
     if valid_loss < best_valid_loss:
         best_valid_loss = valid_loss
-        torch.save(model.state_dict(), 'nsp-model.pt')
+        torch.save(model.state_dict(), f'nsp-model_batch_{BATCH_SIZE}_epoch_{epoch}.pt')
     
     print(f'Epoch: {epoch+1:02} | Epoch Time: {epoch_mins}m {epoch_secs}s')
     print(f'\tTrain Loss: {train_loss:.3f} | Train Acc: {train_acc*100:.2f}%')

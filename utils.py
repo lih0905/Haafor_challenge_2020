@@ -26,6 +26,8 @@ def train(model, iterator, optimizer, criterion, device):
     model.train()
     
     for batch in tqdm(iterator):
+        # batch[0] = (batch_size, 3, hidden_dim)
+        # batch[1] = label
         optimizer.zero_grad()
         input = batch[0].permute(1,0,2)
         label = batch[1].type(torch.DoubleTensor).to(device)
