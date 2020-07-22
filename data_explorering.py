@@ -49,7 +49,7 @@ def split_df(prob):
     if prob < 0.8: return 'train'
     else: return 'dev'
     
-df_fin['class'] = df_fin['prob'].apply(split_df)
+df_fin['class'] = df_fin['prob'].apply(split_df)nn
 
 df_fin_train = df_fin[df_fin['class']=='train'][['X','Y','X_BODY','Y_BODY','Label']]
 df_fin_valid = df_fin[df_fin['class']=='dev'][['X','Y','X_BODY','Y_BODY','Label']]
