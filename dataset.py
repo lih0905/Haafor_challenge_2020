@@ -3,7 +3,7 @@
 import pandas as pd
 import torch
 from torch.utils.data import Dataset
-from transformers import AlbertTokenizer
+from transformers import AlbertTokenizer, AutoTokenizer
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -13,7 +13,7 @@ class NSP_Dataset(Dataset):
         #Store the contents of the file in a pandas dataframe
         self.df = pd.read_csv(filename, header=0)
         #Initialize the tokenizer for the desired transformer model
-        self.tokenizer = AlbertTokenizer.from_pretrained(model_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
         self.max_len = max_length
 
     def __len__(self):
