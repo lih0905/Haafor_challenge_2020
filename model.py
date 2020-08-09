@@ -121,7 +121,7 @@ class CNN(nn.Module):
         super().__init__()
         self.albert = albert
         embedding_dim = albert.config.to_dict()['hidden_size']
-        hidden_dim = albert.config.to_dict()['hidden_size']
+        
         self.convs = nn.ModuleList([nn.Conv2d(in_channels=1,
                                              out_channels=n_filters,
                                              kernel_size=(fs, embedding_dim))

@@ -180,3 +180,117 @@ Current best valid loss. = 0.588
 Model : NSP_gru_AdamP_albert-large-v1
 After training 20 epochs of 20 epochs, valid loss = 0.595 and valid acc. = 63.00.
 Current best valid loss. = 0.588
+Model : CNN_albert-large-v2
+After training 1 epochs of 20 epochs, valid loss = 0.606 and valid acc. = 59.72.
+Current best valid loss. = 0.606
+Model : CNN_albert-large-v2
+After training 2 epochs of 20 epochs, valid loss = 0.598 and valid acc. = 60.31.
+Current best valid loss. = 0.598
+Model : CNN_albert-large-v2
+After training 3 epochs of 20 epochs, valid loss = 0.594 and valid acc. = 60.83.
+Current best valid loss. = 0.594
+Model : CNN_albert-large-v2
+After training 4 epochs of 20 epochs, valid loss = 0.591 and valid acc. = 60.53.
+Current best valid loss. = 0.591
+Model : CNN_albert-large-v2
+After training 5 epochs of 20 epochs, valid loss = 0.589 and valid acc. = 61.16.
+Current best valid loss. = 0.589
+Model : CNN_albert-large-v2
+After training 6 epochs of 20 epochs, valid loss = 0.589 and valid acc. = 60.71.
+Current best valid loss. = 0.589
+Model : CNN_albert-large-v2
+After training 7 epochs of 20 epochs, valid loss = 0.589 and valid acc. = 60.93.
+Current best valid loss. = 0.589
+Model : CNN_albert-large-v2
+After training 8 epochs of 20 epochs, valid loss = 0.589 and valid acc. = 61.13.
+Current best valid loss. = 0.589
+Model : CNN_albert-large-v2
+After training 9 epochs of 20 epochs, valid loss = 0.585 and valid acc. = 61.48.
+Current best valid loss. = 0.585
+Model : CNN_albert-large-v2
+After training 10 epochs of 20 epochs, valid loss = 0.586 and valid acc. = 62.03.
+Current best valid loss. = 0.585
+Model : CNN_albert-large-v2
+After training 11 epochs of 20 epochs, valid loss = 0.586 and valid acc. = 61.92.
+Current best valid loss. = 0.585
+Model : CNN_albert-large-v2
+After training 12 epochs of 20 epochs, valid loss = 0.586 and valid acc. = 61.95.
+Current best valid loss. = 0.585
+Model : CNN_albert-large-v2
+After training 13 epochs of 20 epochs, valid loss = 0.587 and valid acc. = 61.86.
+Current best valid loss. = 0.585
+Model : CNN_albert-large-v2
+After training 14 epochs of 20 epochs, valid loss = 0.589 and valid acc. = 61.73.
+Current best valid loss. = 0.585
+Model : CNN_albert-large-v2
+After training 15 epochs of 20 epochs, valid loss = 0.592 and valid acc. = 61.71.
+Current best valid loss. = 0.585
+Model : CNN_albert-large-v2
+After training 16 epochs of 20 epochs, valid loss = 0.591 and valid acc. = 62.30.
+Current best valid loss. = 0.585
+Model : CNN_albert-large-v2
+After training 17 epochs of 20 epochs, valid loss = 0.593 and valid acc. = 62.16.
+Current best valid loss. = 0.585
+Model : CNN_albert-large-v2
+After training 18 epochs of 20 epochs, valid loss = 0.594 and valid acc. = 61.92.
+Current best valid loss. = 0.585
+Model : NSP_gru_albert-large-v2
+After training 1 epochs of 20 epochs, valid loss = 0.603 and valid acc. = 59.44.
+Current best valid loss. = 0.603
+Model : NSP_gru_albert-large-v2
+After training 2 epochs of 20 epochs, valid loss = 0.593 and valid acc. = 61.51.
+Current best valid loss. = 0.593
+Model : NSP_gru_albert-large-v2
+After training 3 epochs of 20 epochs, valid loss = 0.602 and valid acc. = 60.66.
+Current best valid loss. = 0.593
+Model : NSP_gru_albert-large-v2
+After training 4 epochs of 20 epochs, valid loss = 0.591 and valid acc. = 62.66.
+Current best valid loss. = 0.591
+Model : NSP_gru_albert-large-v2
+After training 5 epochs of 20 epochs, valid loss = 0.582 and valid acc. = 62.98.
+Current best valid loss. = 0.582
+Model : NSP_gru_albert-large-v2
+After training 6 epochs of 20 epochs, valid loss = 0.587 and valid acc. = 63.20.
+Current best valid loss. = 0.582
+Model : NSP_gru_albert-large-v2
+After training 7 epochs of 20 epochs, valid loss = 0.589 and valid acc. = 62.94.
+Current best valid loss. = 0.582
+Model : NSP_gru_albert-large-v2
+After training 8 epochs of 20 epochs, valid loss = 0.584 and valid acc. = 62.96.
+Current best valid loss. = 0.582
+Model : NSP_gru_albert-large-v2
+After training 9 epochs of 20 epochs, valid loss = 0.585 and valid acc. = 63.72.
+Current best valid loss. = 0.582
+Model : NSP_gru_albert-large-v2
+After training 10 epochs of 20 epochs, valid loss = 0.580 and valid acc. = 63.22.
+Current best valid loss. = 0.580
+Model : NSP_gru_albert-large-v2
+After training 11 epochs of 20 epochs, valid loss = 0.578 and valid acc. = 64.16.
+Current best valid loss. = 0.578
+Model : NSP_gru_albert-large-v2
+After training 12 epochs of 20 epochs, valid loss = 0.579 and valid acc. = 63.76.
+Current best valid loss. = 0.578
+Model : NSP_gru_albert-large-v2
+After training 13 epochs of 20 epochs, valid loss = 0.581 and valid acc. = 63.69.
+Current best valid loss. = 0.578
+Model : NSP_gru_albert-large-v2
+After training 14 epochs of 20 epochs, valid loss = 0.580 and valid acc. = 63.70.
+Current best valid loss. = 0.578
+Model : NSP_gru_albert-large-v2
+After training 15 epochs of 20 epochs, valid loss = 0.585 and valid acc. = 64.20.
+Current best valid loss. = 0.578
+Model : NSP_gru_albert-large-v2
+After training 16 epochs of 20 epochs, valid loss = 0.583 and valid acc. = 64.09.
+Current best valid loss. = 0.578
+Model : NSP_gru_albert-large-v2
+After training 17 epochs of 20 epochs, valid loss = 0.580 and valid acc. = 63.85.
+Current best valid loss. = 0.578
+Model : NSP_gru_albert-large-v2
+After training 18 epochs of 20 epochs, valid loss = 0.593 and valid acc. = 63.66.
+Current best valid loss. = 0.578
+Model : NSP_gru_albert-large-v2
+After training 19 epochs of 20 epochs, valid loss = 0.578 and valid acc. = 64.21.
+Current best valid loss. = 0.578
+Model : NSP_gru_albert-large-v2
+After training 20 epochs of 20 epochs, valid loss = 0.590 and valid acc. = 63.90.
+Current best valid loss. = 0.578

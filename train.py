@@ -1,6 +1,7 @@
 # load modules
 import time 
 import random 
+import os
 
 import numpy as np
 import pickle
@@ -30,7 +31,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 BATCH_SIZE = 128
 MAX_LENGTH = 512
 N_EPOCHS = 20
-model_name='albert-large-v1'
+model_name='albert-large-v2'
 #model_name= 'roberta-base'
 
 # load the dataset
@@ -42,10 +43,10 @@ dev_dataloader = DataLoader(dev_dataset, batch_size=BATCH_SIZE, num_workers=4)
 # load the NSP model
 # albert = AlbertModel.from_pretrained(model_name)
 bert = AutoModel.from_pretrained(model_name)
-# model = NSP_gru(bert)
+model = NSP_gru(bert)
 N_FILTERS = 100
 FILTER_SIZES = [3,4,5]
-model = CNN(bert, N_FILTERS, FILTER_SIZES, 0.5)
+# model = CNN(bert, N_FILTERS, FILTER_SIZES, 0.5)
 MODEL = str(model.__class__).split('.')[1].split("'")[0]
 # model_path = f'weights/{MODEL}_{model_name}_batch_{BATCH_SIZE}_epoch_{6}.pt'
 # model.load_state_dict(torch.load(model_path))
@@ -62,7 +63,6 @@ optimizer = optim.Adam(model.parameters())
 criterion = nn.BCEWithLogitsLoss()
 criterion.to(device)
 
-train
 try:
     with open(f'weights/{MODEL}_{model_name}_best_loss.pickle','rb') as f:
         last_epoch, best_valid_loss = pickle.load(f)
@@ -88,6 +88,8 @@ for epoch in range(last_epoch, N_EPOCHS):
     
     if valid_loss < best_valid_loss:
         best_valid_loss = valid_loss
+        if not os.path.isdir('weights'):
+            os.mkdir('weights')
         torch.save(model.state_dict(), f'weights/{MODEL}_{model_name}_batch_{BATCH_SIZE}_epoch_{epoch}.pt')        
         with open(f'weights/{MODEL}_{model_name}_best_loss.pickle', 'wb') as f:
             pickle.dump([epoch+1, best_valid_loss], f)
