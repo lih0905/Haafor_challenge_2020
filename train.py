@@ -44,8 +44,8 @@ dev_dataloader = DataLoader(dev_dataset, batch_size=BATCH_SIZE, num_workers=4)
 # albert = AlbertModel.from_pretrained(model_name)
 bert = AutoModel.from_pretrained(model_name)
 model = NSP_gru(bert)
-N_FILTERS = 100
-FILTER_SIZES = [3,4,5]
+# N_FILTERS = 100
+# FILTER_SIZES = [3,4,5]
 # model = CNN(bert, N_FILTERS, FILTER_SIZES, 0.5)
 MODEL = str(model.__class__).split('.')[1].split("'")[0]
 # model_path = f'weights/{MODEL}_{model_name}_batch_{BATCH_SIZE}_epoch_{6}.pt'
@@ -70,10 +70,7 @@ except:
     last_epoch = 0
     best_valid_loss = float('infinity')
 
-# last_epoch = 7
-# best_valid_loss = 0.596
-
-
+# training...
 for epoch in range(last_epoch, N_EPOCHS):
     print(f'Train the {epoch+1}th epoch.')
     print(f'The current best loss is {best_valid_loss:.3f}.')
