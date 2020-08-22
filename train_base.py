@@ -48,7 +48,7 @@ model.to(device)
 
 # freeze the parameters of albert
 for name, param in model.named_parameters():
-    if name.startswith('albert'):
+    if name.startswith('albert') or name.startswith('bert'):
         param.requires_grad = False
 
 # load the optimizer and loss function
