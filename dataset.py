@@ -22,10 +22,14 @@ class NSP_Dataset(Dataset):
 
     def __getitem__(self, index):
         #Select the sentence and label at the specified index in the data frame
-        X = self.df.loc[index,'X_BODY']
-        Y = self.df.loc[index,'Y_BODY']
         if self.mode == 'train':
+            X = self.df.loc[index,'X_BODY']
+            Y = self.df.loc[index,'Y_BODY']
             label = self.df.loc[index,'Label']
+        else: 
+            X = self.df.loc[index,'NEWS1_BODY']
+            Y = self.df.loc[index,'NEWS2_BODY']
+   
         #Preprocess the text to be suitable for the transformer
         res = self.tokenizer.encode_plus(X,Y, return_token_type_ids=True, return_attention_mask=True, truncation=True,
                                          padding='max_length', max_length=self.max_len)

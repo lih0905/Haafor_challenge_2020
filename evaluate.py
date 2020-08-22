@@ -27,14 +27,14 @@ torch.backends.cudnn.deterministic = True
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 # hyperparameters
-BATCH_SIZE = 1
+BATCH_SIZE = 128 
 MAX_LENGTH = 512
 N_EPOCHS = 20
 model_name='albert-large-v2'
 #model_name= 'roberta-base'
 
 # load the dataset
-ev_dataset = NSP_Dataset('Data/dev_sample.csv', model_name=model_name, max_length=MAX_LENGTH, mode='evaluate')
+ev_dataset = NSP_Dataset('Data/evaluation.csv', model_name=model_name, max_length=MAX_LENGTH, mode='evaluate')
 ev_dataloader = DataLoader(ev_dataset, batch_size=BATCH_SIZE, num_workers=4)
 
 # load the NSP model
@@ -90,5 +90,5 @@ indices = np.arange(1,length+1)
 d = {'BEF':result_a, 'AFT':result}
 
 df = pd.DataFrame(d, index=indices)
-df.to_csv('answer.csv', header=None)
+df.to_csv('Data/answer.csv', header=None)
 
