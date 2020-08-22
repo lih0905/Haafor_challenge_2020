@@ -12,7 +12,7 @@ from transformers import AlbertModel
 
 from dataset import NSP_Dataset
 from model import NSP, NSP_pool, NSP_lin
-from utils import epoch_time, binary_accuracy, train, evaluate, send_telegram_message
+from utils import epoch_time, binary_accuracy, train, evaluate
 
 # fix random seed
 SEED = 1234
@@ -81,11 +81,6 @@ for epoch in range(last_epoch, N_EPOCHS):
         torch.save(model.state_dict(), f'weights/{MODEL}_{model_name}_batch_{BATCH_SIZE}_epoch_{epoch}.pt')        
         with open(f'weights/{MODEL}_{model_name}_best_loss.pickle', 'wb') as f:
             pickle.dump([epoch+last_epoch+1, best_valid_loss], f)
-
-    msg = f'Model : {MODEL}_{model_name}\n' + \
-        f'After training {epoch+last_epoch+1} epochs of {N_EPOCHS} epochs, valid loss = {valid_loss:.3f} and valid acc. = {valid_acc*100:.2f}.\n' + \
-        f'Current best valid loss. = {best_valid_loss:.3f}'
-    send_telegram_message(msg)
 
     print(f'Epoch: {epoch+last_epoch+1:02} | Epoch Time: {epoch_mins}m {epoch_secs}s')
     print(f'\tTrain Loss: {train_loss:.3f} | Train Acc: {train_acc*100:.2f}%')

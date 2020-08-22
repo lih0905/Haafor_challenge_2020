@@ -14,7 +14,7 @@ from adamp import AdamP
 
 from dataset import NSP_Dataset
 from model import NSP, NSP_pool, NSP_lin, NSP_gru, NSP_gru_NoneFreeze, CNN
-from utils import epoch_time, binary_accuracy, train, evaluate, send_telegram_message
+from utils import epoch_time, binary_accuracy, train, evaluate
 
 # fix random seed
 SEED = 1234
@@ -94,7 +94,6 @@ for epoch in range(last_epoch, N_EPOCHS):
     msg = f'Model : {MODEL}_{model_name}\n' + \
         f'After training {epoch+1} epochs of {N_EPOCHS} epochs, valid loss = {valid_loss:.3f} and valid acc. = {valid_acc*100:.2f}.\n' + \
         f'Current best valid loss. = {best_valid_loss:.3f}\n'
-    send_telegram_message(msg)
     with open(f'result.txt', 'a') as f:
         f.write(msg)
 
